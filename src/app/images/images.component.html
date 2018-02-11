@@ -1,0 +1,33 @@
+<div class="images-component">
+  <div *ngIf="!images.length" class="create-image-prompt">
+    <p>No images have been uploaded yet.</p>
+    <p>Be the first to upload!</p>
+  </div>
+  <div *ngIf="images.length" class="images-container">
+    <ul>
+      <li *ngFor="let image of images;">
+        <div class="app-image"
+             [routerLink]="[image.id]"
+             routerLinkActive="active">
+          <div class="image-container">
+            <img src="{{image.imageSource}}">
+          </div>
+          <div class="image-description">
+            <p><span>Description:</span> {{image.description}}</p>
+          </div>
+          <div class="image-date">
+            <p><span>Date:</span> {{image.date | date}}</p>
+            <button class="favorite-button" [ngClass]="{favorite:isFavorite(image.id)}"
+                    [disabled]="isFavorite(image.id)" (click)="onAddFavorite(image.id, $event)"></button>
+          </div>
+          <ul class="image-tags">
+            <li *ngFor="let tag of image.tags"><span>{{tag.text}}</span></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="images.length" class="child-route-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="image-comment-container">
+  <div #gmap style="width:400px;height:200px"></div>
+  <p>Comments:</p>
+  <ul class="image-comments">
+    <li *ngFor="let comment of image.comments"><span>{{comment}}</span></li>
+  </ul>
+  <form (ngSubmit)="onAddComment(f)" #f="ngForm">
+    <textarea
+      name="comment"
+      ngModel
+      required
+    ></textarea>
+    <button class="button" type="submit" [disabled]="!f.valid">Add comment</button>
+  </form>
+</div>

@@ -1,0 +1,16 @@
+<nav class="header-tabs">
+  <ul>
+    <li class="app-logo"><a routerLink="/">Pie Photo Manager</a></li>
+    <ng-template [ngIf]="authService.isAuthenticated()">
+      <li routerLinkActive="active"><a routerLink="/images">Images</a></li>
+      <li routerLinkActive="active"><a routerLink="/upload">Upload new image</a></li>
+    </ng-template>
+  </ul>
+  <ul class="header-user-controls">
+    <ng-template [ngIf]="!authService.isAuthenticated()">
+      <li><a routerLink="/signin">Sign in</a></li>
+      <li class="sign-up"><a routerLink="/signup">Sign up</a></li>
+    </ng-template>
+    <li *ngIf="authService.isAuthenticated()"><a (click)="onLogout()">Log out</a></li>
+  </ul>
+</nav>

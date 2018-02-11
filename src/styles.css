@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  min-width: 600px;
+  overflow: hidden;
+}
+
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.button{
+  background: #4276F2;
+  border-radius: 2px;
+  border: 1px;
+  color: #FFFFFF;
+  cursor: pointer;
+  height: 30px;
+  text-align: center;
+  font-size: 15pt;
+}
+
+.button:disabled{
+  background: #BBBBBB;
+  color: #EEEEEE;
+  border: 1px solid #BBBBBB;
+}

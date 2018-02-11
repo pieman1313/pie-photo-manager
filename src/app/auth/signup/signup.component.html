@@ -1,0 +1,27 @@
+<div class="sign-container">
+  <div class="forms-container">
+    <form (ngSubmit)="onSignup(f)" #f="ngForm">
+      <div class="form-content">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          ngModel
+          required
+          email
+        />
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          ngModel
+          required
+        />
+        <button class="button" type="submit" [disabled]="!f.valid">Sign up</button>
+      </div>
+    </form>
+    <div [ngStyle]="{'display': message ? 'block' : 'none'}" class="messages"><p>{{message}}</p></div>
+  </div>
+</div>
